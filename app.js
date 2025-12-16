@@ -49,3 +49,14 @@ resizeButton.addEventListener('click', function() {
     }
 
 });
+
+const saveButton = document.querySelector('#save');
+saveButton.addEventListener('click', function() {
+    html2canvas(gridContainer).then(function(canvas) {
+        const imageData = canvas.toDataURL('image/jpeg');
+        const link = document.createElement('a');
+        link.download = 'mono-sketch.jpg';
+        link.href = imageData;
+        link.click();
+    });
+})
